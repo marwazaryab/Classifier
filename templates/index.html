@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIFAR-10 Image Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 50px;
+        }
+
+        /* Form styles */
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%; /* Ensure the button spans the full width of the container */
+            box-sizing: border-box; 
+            height: 50px; 
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Prediction container styling */
+        .prediction-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 300px;
+        }
+
+        .prediction-container h2 {
+            color: #333;
+        }
+
+        /* Centered page layout */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CIFAR-10 Image Classifier</h1>
+
+        <!-- Form to upload an image -->
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            <label for="file">Choose an image to classify:</label><br>
+            <input type="file" name="file" id="file" accept="image/*" required><br>
+            <button type="submit">Upload Image</button>
+        </form>
+
+        {% if prediction %}
+        <!-- Prediction result container -->
+        <div class="prediction-container">
+            <h2>Prediction: {{ prediction }}</h2>
+            <form action="/">
+                <button type="submit">Go Back</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
