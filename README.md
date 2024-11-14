@@ -42,3 +42,12 @@ Before running the project, you need to have Python 3.6+ installed. You also nee
     ```
 
     You will be able to upload images, and the app will predict the class of the image using the trained model.
+
+## See it in Action!! 🌸
+
+
+https://github.com/user-attachments/assets/a32cd34a-7b76-4512-85d0-c84a5fa2dbec
+
+
+
+
